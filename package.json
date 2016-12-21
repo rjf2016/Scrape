@@ -10,6 +10,7 @@
   "author": "Rick Fahey",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^3.4.6",
     "body-parser": "^1.15.0",
     "cheerio": "^0.20.0",
     "express": "^4.13.4",

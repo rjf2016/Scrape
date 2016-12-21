@@ -8,21 +8,28 @@
 ====================
 	DEPENDENCIES
 ===================*/
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-var logger = require('morgan');
-var mongoose = require('mongoose');
-var request = require('request'); 
-var cheerio = require('cheerio');
+var express = require("express");
+var bodyParser = require("body-parser");
+var logger = require("morgan");
+var mongoose = require("mongoose");
+// Note & Article Models
+var Note = require("./models/Note.js");
+var Article = require("./models/Article.js");
+// Scrape
+var request = require("request");
+var cheerio = require("cheerio");
+var Promise = require("bluebird");
 
-app.use(logger('dev'));
+mongoose.Promise = Promise;
+
+var app = express();
+
+app.use(logger("dev"));
 app.use(bodyParser.urlencoded({
   extended: false
 }));
 
-app.use(express.static('public'));
-
+app.use(express.static("public"));
 
 // Configure mongoose, using mlab
 mongoose.connect('mongodb://articlescrape:articlescrape@ds141108.mlab.com:41108/heroku_x8fh99r1');
@@ -38,10 +45,6 @@ db.once('open', function() {
   console.log('Mongoose connection successful.');
 });
 
-
-// bring in Note and Article models
-var Note = require('./models/Note.js');
-var Article = require('./models/Article.js');
 
 /*============
  	ROUTES
