@@ -25,7 +25,7 @@ app.use(express.static('public'));
 
 
 // Configure mongoose, using mlab
-mongoose.connect('mongodb://articlescrape:articlescrape@ds141098.mlab.com:41098/heroku_3phms94q');
+mongoose.connect('mongodb://articlescrape:articlescrape@ds141108.mlab.com:41108/heroku_x8fh99r1');
 var db = mongoose.connection;
 
 // logging any mongoose errors
