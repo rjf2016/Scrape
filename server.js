@@ -18,9 +18,9 @@ var Article = require("./models/Article.js");
 // Scrape
 var request = require("request");
 var cheerio = require("cheerio");
-var Promise = require("bluebird");
+// var Promise = require("bluebird");
 
-mongoose.Promise = Promise;
+// mongoose.Promise = Promise;
 
 var app = express();
 
@@ -159,11 +159,14 @@ app.post('/articles/:id', function(req, res){
 
 
 
+var port = process.env.PORT || 3000;
+app.listen(port);
+console.log('listening on ' + port);
 
 
 
 
 // listen on port 3000
-app.listen(3000, function() {
-  console.log('App running on port 3000!');
-});
+//app.listen(3000, function() {
+  //console.log('App running on port 3000!');
+//});
